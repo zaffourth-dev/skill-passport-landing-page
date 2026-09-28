@@ -1,19 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="space-y-24 sm:space-y-32">
+<div class="space-y-24 sm:space-y-32 overflow-hidden">
 
-    <!-- ==================== 1. HERO SECTION ==================== -->
-    <section id="hero" class="relative pt-12 sm:pt-20 lg:pt-28 pb-12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- ==================== 1. HERO SECTION WITH INTERACTIVE LANYARD ==================== -->
+    <section id="hero" class="relative pt-6 sm:pt-12 lg:pt-16 pb-12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Subtle background pastel glow -->
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-tr from-sky-200/20 via-purple-200/20 to-emerald-200/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-tr from-sky-200/25 via-purple-200/20 to-emerald-200/25 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            <!-- Left Info Column -->
-            <div class="lg:col-span-7 space-y-6 text-left">
-                <!-- Status & Greeting Pill -->
-                <div class="flex flex-wrap items-center gap-3">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+            
+            <!-- Left Column: Sequential Staggered Hero Text -->
+            <div class="lg:col-span-7 space-y-6 text-left z-10">
+                <!-- 1. Small Greeting & Status Pill -->
+                <div class="hero-anim-1 flex flex-wrap items-center gap-3">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/80 shadow-2xs">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-soft-pulse"></span>
                         Currently learning & building
                     </span>
@@ -22,27 +23,27 @@
                     </span>
                 </div>
 
-                <!-- Main Heading -->
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-[#172033] leading-[1.08]">
+                <!-- 2. Main Heading -->
+                <h1 class="hero-anim-2 text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-[#172033] leading-[1.08]">
                     KAMARUL ARIFIN <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-800 to-sky-700">MUZAFFAR</span>
                 </h1>
 
-                <!-- Subtitle -->
-                <p class="text-base sm:text-lg font-medium text-sky-600 tracking-normal">
+                <!-- 3. Subtitle -->
+                <p class="hero-anim-3 text-base sm:text-lg font-medium text-sky-600 tracking-normal">
                     Student Developer · Web · AI · IoT · Networking
                 </p>
 
-                <!-- Description -->
-                <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+                <!-- 4. Description -->
+                <p class="hero-anim-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
                     I build practical digital experiences through code, creativity, and curiosity.
                 </p>
 
-                <!-- Action Buttons -->
-                <div class="flex flex-wrap items-center gap-4 pt-2">
-                    <a href="#projects" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400">
+                <!-- 5. CTA Buttons -->
+                <div class="hero-anim-5 flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#projects" class="group inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-xs hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400">
                         <span>Explore Projects</span>
-                        <svg class="w-4 h-4 text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-sky-300 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H9M17 7v8"></path>
                         </svg>
                     </a>
@@ -58,57 +59,168 @@
                 </div>
             </div>
 
-            <!-- Right Column: Abstract Developer Visual -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="w-full max-w-md relative">
-                    <!-- Ambient pastel gradient backdrop -->
-                    <div class="absolute -inset-1 bg-gradient-to-r from-sky-200 via-purple-200 to-emerald-200 rounded-3xl blur-lg opacity-60"></div>
+            <!-- Right Column: Interactive Hanging Lanyard Visual -->
+            <div class="lg:col-span-5 flex justify-center relative select-none">
+                <!-- Lanyard Interactive Canvas -->
+                <div id="lanyardContainer" class="relative w-full max-w-[340px] sm:max-w-[360px] h-[520px] sm:h-[560px] flex justify-center touch-none">
                     
-                    <!-- Code Card Container -->
-                    <div class="relative bg-white/95 backdrop-blur-md rounded-2xl border border-[#E2E8F0] shadow-xl p-5 sm:p-6 animate-hero-float">
-                        <!-- macOS window controls -->
-                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
-                            <div class="flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-rose-400"></span>
-                                <span class="w-3 h-3 rounded-full bg-amber-400"></span>
-                                <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                    <!-- Ambient soft glow behind card -->
+                    <div class="absolute top-28 w-64 h-64 bg-gradient-to-r from-sky-200/40 via-purple-200/40 to-emerald-200/40 rounded-full blur-2xl pointer-events-none -z-10"></div>
+
+                    <!-- SVG for Dynamic Hanging Ribbon / Strap -->
+                    <svg id="lanyardSvg" class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 360 580" fill="none">
+                        <defs>
+                            <!-- Lanyard ribbon gradient -->
+                            <linearGradient id="strapGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#0F172A" />
+                                <stop offset="35%" stop-color="#1E293B" />
+                                <stop offset="65%" stop-color="#334155" />
+                                <stop offset="100%" stop-color="#0F172A" />
+                            </linearGradient>
+
+                            <!-- Metallic clip gradient -->
+                            <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#E2E8F0" />
+                                <stop offset="50%" stop-color="#94A3B8" />
+                                <stop offset="100%" stop-color="#CBD5E1" />
+                            </linearGradient>
+
+                            <filter id="strapShadow" x="-20%" y="-10%" width="140%" height="120%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.18" flood-color="#0F172A" />
+                            </filter>
+                        </defs>
+
+                        <!-- Top Mount Peg on Ceiling -->
+                        <g>
+                            <rect x="166" y="0" width="28" height="6" rx="2" fill="#334155" />
+                            <circle cx="180" cy="5" r="4" fill="#64748B" />
+                        </g>
+
+                        <!-- The Dynamic SVG Strap Path -->
+                        <path id="lanyardStrap" 
+                              d="M 180 0 C 180 60, 180 100, 180 140" 
+                              stroke="url(#strapGrad)" 
+                              stroke-width="14" 
+                              stroke-linecap="round" 
+                              filter="url(#strapShadow)" />
+                    </svg>
+
+                    <!-- The Lanyard ID Card Wrapper (Draggable Physical Object) -->
+                    <div id="lanyardCardWrapper" 
+                         class="absolute top-0 left-0 w-[260px] cursor-grab active:cursor-grabbing will-change-transform z-20 origin-top"
+                         style="transform: translate3d(50px, 140px, 0px);">
+
+                        <!-- Swivel Hook & Metal Clip on Card -->
+                        <div class="flex flex-col items-center -mb-2">
+                            <!-- Metal Ring -->
+                            <div class="w-6 h-6 rounded-full border-[3.5px] border-slate-400 bg-transparent -mb-1 shadow-xs"></div>
+                            <!-- Swivel Body & Clip -->
+                            <div class="w-4 h-6 bg-gradient-to-b from-slate-200 via-slate-400 to-slate-300 rounded-t-xs rounded-b-sm border border-slate-400 shadow-xs flex items-center justify-center">
+                                <div class="w-1.5 h-3 bg-slate-500 rounded-full"></div>
                             </div>
-                            <span class="text-xs font-mono text-slate-400">arif.config.ts</span>
-                            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-500">v1.0</span>
                         </div>
 
-                        <!-- Code Content snippet -->
-                        <div class="space-y-1.5 font-mono text-xs sm:text-sm text-slate-700 leading-relaxed overflow-x-auto">
-                            <div><span class="text-sky-600 font-semibold">const</span> <span class="text-violet-600">developer</span> = {</div>
-                            <div class="pl-4"><span class="text-slate-500">name:</span> <span class="text-emerald-600">'Kamarul Arifin Muzaffar'</span>,</div>
-                            <div class="pl-4"><span class="text-slate-500">callsign:</span> <span class="text-emerald-600">'Arif'</span>,</div>
-                            <div class="pl-4"><span class="text-slate-500">role:</span> <span class="text-emerald-600">'Student Developer'</span>,</div>
-                            <div class="pl-4"><span class="text-slate-500">location:</span> <span class="text-emerald-600">'Pati, Indonesia 🇮🇩'</span>,</div>
-                            <div class="pl-4"><span class="text-slate-500">school:</span> <span class="text-emerald-600">'SMK Tunas Harapan Pati'</span>,</div>
-                            <div class="pl-4"><span class="text-slate-500">discipline:</span> <span class="text-emerald-600">'TJKT (2024–2027)'</span>,</div>
-                            <div class="pl-4"><span class="text-slate-500">passions:</span> [</div>
-                            <div class="pl-8"><span class="text-emerald-600">'Web Apps'</span>, <span class="text-emerald-600">'AI'</span>, <span class="text-emerald-600">'IoT'</span>, <span class="text-emerald-600">'Networking'</span></div>
-                            <div class="pl-4">]</div>
-                            <div>};</div>
+                        <!-- Badge Holder Case (Realistic Clear Badge Holder) -->
+                        <div class="relative bg-white/95 backdrop-blur-md rounded-2xl border-2 border-slate-200/90 shadow-xl overflow-hidden p-4 group transition-shadow duration-300 hover:shadow-2xl">
+                            
+                            <!-- Plastic Sleeve Slot Punch at top -->
+                            <div class="w-12 h-2.5 mx-auto -mt-1.5 mb-3 bg-slate-100 rounded-full border border-slate-300 shadow-inner"></div>
+
+                            <!-- Holographic Sheen Overlay -->
+                            <div class="absolute inset-0 hologram-sheen opacity-40 pointer-events-none rounded-2xl"></div>
+
+                            <!-- Badge Header -->
+                            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 relative">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 rounded-md bg-slate-900 text-sky-400 flex items-center justify-center font-heading font-bold text-xs">
+                                        TH
+                                    </div>
+                                    <div class="leading-none">
+                                        <p class="font-heading font-bold text-[11px] text-slate-900 tracking-tight">SMK TUNAS HARAPAN</p>
+                                        <p class="text-[9px] font-mono text-slate-400">PATI · TJKT</p>
+                                    </div>
+                                </div>
+                                <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-sky-50 text-sky-700 border border-sky-200">
+                                    NO. 21
+                                </span>
+                            </div>
+
+                            <!-- Skill Passport Title -->
+                            <div class="text-center py-1 px-2 rounded-lg bg-gradient-to-r from-sky-50 via-purple-50 to-emerald-50 border border-slate-200/70 mb-3">
+                                <span class="font-heading font-extrabold text-xs tracking-wider text-slate-800 uppercase">
+                                    SKILL PASSPORT
+                                </span>
+                            </div>
+
+                            <!-- Student Photo / Avatar Area -->
+                            <div class="relative w-28 h-28 mx-auto rounded-xl bg-gradient-to-br from-slate-100 via-sky-50 to-slate-200 border-2 border-white shadow-sm overflow-hidden flex flex-col items-center justify-center mb-3">
+                                <!-- Clean placeholder avatar vector for Arif -->
+                                <div class="w-14 h-14 rounded-full bg-slate-800 text-sky-300 flex items-center justify-center shadow-inner font-heading font-bold text-xl">
+                                    A
+                                </div>
+                                <span class="text-[10px] font-mono text-slate-600 font-semibold mt-1">
+                                    ARIF
+                                </span>
+
+                                <!-- Security Holo Seal in Corner -->
+                                <div class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-gradient-to-tr from-sky-300 via-purple-300 to-emerald-300 border border-white shadow-xs opacity-90 flex items-center justify-center text-[7px] font-bold text-slate-800 font-mono">
+                                    ✓
+                                </div>
+                            </div>
+
+                            <!-- Student Details -->
+                            <div class="space-y-1 text-center font-mono">
+                                <h4 class="font-heading font-bold text-sm text-slate-900 leading-tight">
+                                    Kamarul Arifin M.
+                                </h4>
+                                <p class="text-[11px] font-semibold text-sky-600">
+                                    Student Developer
+                                </p>
+                                <div class="pt-1 text-[10px] text-slate-500 flex items-center justify-center gap-2">
+                                    <span>Class: XII TJKT 1</span>
+                                    <span>•</span>
+                                    <span>2024–2027</span>
+                                </div>
+                            </div>
+
+                            <!-- Barcode / Security Footer -->
+                            <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+                                <!-- Simulated barcode lines -->
+                                <div class="flex items-center gap-0.5 h-4 opacity-70">
+                                    <span class="w-1 h-full bg-slate-900"></span>
+                                    <span class="w-0.5 h-full bg-slate-900"></span>
+                                    <span class="w-1.5 h-full bg-slate-900"></span>
+                                    <span class="w-0.5 h-full bg-slate-900"></span>
+                                    <span class="w-2 h-full bg-slate-900"></span>
+                                    <span class="w-0.5 h-full bg-slate-900"></span>
+                                    <span class="w-1 h-full bg-slate-900"></span>
+                                    <span class="w-1.5 h-full bg-slate-900"></span>
+                                    <span class="w-0.5 h-full bg-slate-900"></span>
+                                    <span class="w-1 h-full bg-slate-900"></span>
+                                </div>
+                                <span class="text-[9px] font-mono text-emerald-600 font-medium flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    VERIFIED
+                                </span>
+                            </div>
                         </div>
 
-                        <!-- Card Footer Indicator -->
-                        <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                            <span class="flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-                                Git branch: main
-                            </span>
-                            <span class="text-emerald-600 font-medium">Ready for deployment</span>
+                        <!-- First Time Floating Drag Hint -->
+                        <div id="lanyardDragHint" 
+                             class="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900/90 text-white text-[11px] font-mono whitespace-nowrap shadow-md flex items-center gap-1.5 pointer-events-none transition-all duration-300">
+                            <span class="animate-bounce">↕</span>
+                            <span>Tarik / Drag me</span>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- ==================== 2. ABOUT SECTION ==================== -->
-    <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
-        <div class="bg-white rounded-3xl border border-[#E2E8F0] p-8 sm:p-12 shadow-xs">
+    <section id="about" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div class="bg-white rounded-3xl border border-[#E2E8F0] p-8 sm:p-12 shadow-xs transition-shadow duration-300 hover:shadow-md">
             <div class="max-w-3xl">
                 <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600">Background & Philosophy</span>
                 <h2 class="text-2xl sm:text-3xl font-heading font-bold text-[#172033] mt-2 mb-4">
@@ -122,8 +234,8 @@
             <!-- 4 Focus Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <!-- Focus 1: Web Development -->
-                <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-sky-300 hover:bg-sky-50/30 transition-all duration-200 group">
-                    <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <div class="reveal-item stagger-1 p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-sky-300 hover:bg-sky-50/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
+                    <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                         </svg>
@@ -135,8 +247,8 @@
                 </div>
 
                 <!-- Focus 2: AI & Programming -->
-                <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-purple-300 hover:bg-purple-50/30 transition-all duration-200 group">
-                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <div class="reveal-item stagger-2 p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-purple-300 hover:bg-purple-50/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
@@ -148,8 +260,8 @@
                 </div>
 
                 <!-- Focus 3: IoT -->
-                <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-emerald-300 hover:bg-emerald-50/30 transition-all duration-200 group">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <div class="reveal-item stagger-3 p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-emerald-300 hover:bg-emerald-50/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
@@ -161,8 +273,8 @@
                 </div>
 
                 <!-- Focus 4: Networking -->
-                <div class="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-blue-300 hover:bg-blue-50/30 transition-all duration-200 group">
-                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <div class="reveal-item stagger-4 p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-blue-300 hover:bg-blue-50/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                         </svg>
@@ -177,7 +289,7 @@
     </section>
 
     <!-- ==================== 3. SKILLS / TECH STACK ==================== -->
-    <section id="skills" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <section id="skills" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div class="text-left mb-10">
             <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600">Core Capabilities</span>
             <h2 class="text-2xl sm:text-3xl font-heading font-bold text-[#172033] mt-1">
@@ -190,7 +302,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($skills as $category => $categorySkills)
-                <div class="bg-white rounded-2xl border border-[#E2E8F0] p-6 shadow-xs hover:border-slate-300 transition-all">
+                <div class="reveal-item stagger-{{ ($loop->index % 4) + 1 }} bg-white rounded-2xl border border-[#E2E8F0] p-6 shadow-xs hover:border-slate-300 hover:shadow-sm transition-all duration-200">
                     <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                         <h3 class="font-heading font-semibold text-slate-900 text-base">
                             {{ $category }}
@@ -202,7 +314,7 @@
 
                     <div class="flex flex-wrap gap-2">
                         @foreach($categorySkills as $skill)
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-700 bg-slate-50 hover:bg-sky-50 hover:text-sky-800 border border-slate-200 hover:border-sky-300 transition-all duration-150 cursor-default select-none">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-700 bg-slate-50 hover:bg-sky-50 hover:text-sky-800 border border-slate-200 hover:border-sky-300 transition-all duration-150 cursor-default select-none hover:-translate-y-0.5 hover:shadow-2xs">
                                 <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                                 {{ $skill->name }}
                             </span>
@@ -214,7 +326,7 @@
     </section>
 
     <!-- ==================== 4. FEATURED PROJECTS ==================== -->
-    <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <section id="projects" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
                 <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600">Selected Works</span>
@@ -232,11 +344,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($projects as $project)
-                <div class="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 group">
+                <div class="reveal-item stagger-{{ $loop->iteration }} bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 group">
                     <!-- Project Visual Placeholder Banner -->
                     <div class="h-44 bg-gradient-to-br from-slate-100 via-sky-50 to-purple-50 p-6 flex flex-col justify-between border-b border-slate-100 relative overflow-hidden">
-                        <!-- Decorative geometric lines -->
-                        <div class="absolute -right-4 -bottom-4 w-28 h-28 rounded-full bg-sky-200/40 blur-xl pointer-events-none"></div>
+                        <div class="absolute -right-4 -bottom-4 w-28 h-28 rounded-full bg-sky-200/40 blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
                         <div class="flex items-center justify-between z-10">
                             <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-xs text-slate-700 border border-slate-200 font-medium">
                                 {{ $project->role }}
@@ -295,7 +406,7 @@
 
                             <button type="button" 
                                     onclick="openProjectModal({{ json_encode($project) }})" 
-                                    class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-800 bg-slate-50 hover:bg-slate-900 hover:text-white border border-slate-200 transition-all duration-200">
+                                    class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-800 bg-slate-50 hover:bg-slate-900 hover:text-white border border-slate-200 transition-all duration-200 active:scale-98">
                                 <span>View Project Details</span>
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -309,7 +420,7 @@
     </section>
 
     <!-- ==================== 5. EXPERIENCE & TIMELINE ==================== -->
-    <section id="experience" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <section id="experience" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div class="lg:col-span-4">
                 <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600">Track Record</span>
@@ -324,7 +435,7 @@
             <div class="lg:col-span-8 bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs">
                 <div class="relative border-l-2 border-slate-200 ml-3 space-y-8">
                     @foreach($experiences as $exp)
-                        <div class="relative pl-6 sm:pl-8 group">
+                        <div class="reveal-item stagger-{{ $loop->iteration }} relative pl-6 sm:pl-8 group">
                             <!-- Bullet dot -->
                             <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-sky-500 group-hover:scale-125 transition-transform"></div>
                             
@@ -352,7 +463,7 @@
     </section>
 
     <!-- ==================== 6. ORGANIZATIONS ==================== -->
-    <section id="organizations" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <section id="organizations" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div class="lg:col-span-4">
                 <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600">Leadership & Teamwork</span>
@@ -367,7 +478,7 @@
             <div class="lg:col-span-8 bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs">
                 <div class="relative border-l-2 border-slate-200 ml-3 space-y-8">
                     @foreach($organizations as $org)
-                        <div class="relative pl-6 sm:pl-8 group">
+                        <div class="reveal-item stagger-{{ $loop->iteration }} relative pl-6 sm:pl-8 group">
                             <!-- Bullet dot -->
                             <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-purple-500 group-hover:scale-125 transition-transform"></div>
                             
@@ -405,8 +516,8 @@
     </section>
 
     <!-- ==================== 7. EDUCATION ==================== -->
-    <section id="education" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
-        <div class="bg-white rounded-3xl border border-[#E2E8F0] p-8 sm:p-12 shadow-xs">
+    <section id="education" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div class="bg-white rounded-3xl border border-[#E2E8F0] p-8 sm:p-12 shadow-xs transition-shadow duration-300 hover:shadow-md">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-100">
                 <div>
                     <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600">Academic Foundation</span>
@@ -449,7 +560,7 @@
                             </span>
                             <div class="flex flex-wrap gap-2">
                                 @foreach($education->focus_areas as $area)
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-50 text-slate-700 border border-slate-200">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-50 text-slate-700 border border-slate-200 hover:-translate-y-0.5 transition-transform duration-150">
                                         <svg class="w-3.5 h-3.5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
@@ -465,7 +576,7 @@
     </section>
 
     <!-- ==================== 8. CERTIFICATIONS ==================== -->
-    <section id="certifications" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <section id="certifications" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
                 <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600">Verification</span>
@@ -483,7 +594,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             @foreach($certifications as $cert)
-                <div class="bg-white rounded-2xl border border-[#E2E8F0] p-5 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+                <div class="reveal-item stagger-{{ $loop->iteration }} bg-white rounded-2xl border border-[#E2E8F0] p-5 shadow-xs hover:border-slate-300 hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
@@ -512,7 +623,7 @@
     </section>
 
     <!-- ==================== 9. CONTACT & CTA SECTION ==================== -->
-    <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <section id="contact" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <!-- Pastel Banner Container -->
         <div class="bg-gradient-to-br from-blue-50/70 via-purple-50/50 to-emerald-50/70 rounded-3xl border border-[#E2E8F0] p-8 sm:p-12 lg:p-16 shadow-xs">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
