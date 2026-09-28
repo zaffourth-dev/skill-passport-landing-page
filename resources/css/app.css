@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@source '../../resources/views/**/*.blade.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@theme {
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-canvas: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-brand-primary: #172033;
+  --color-brand-secondary: #64748B;
+  --color-brand-border: #E2E8F0;
+
+  --color-pastel-sky: #7DD3FC;
+  --color-pastel-mint: #A7F3D0;
+  --color-pastel-lavender: #C4B5FD;
+  --color-pastel-blue: #DBEAFE;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #F8FAFC;
+  color: #172033;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Floating animation for hero developer visual */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+.animate-hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+/* Pulse animation for active learning status dot */
+@keyframes softPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.15);
+  }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Accessibility: respects reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

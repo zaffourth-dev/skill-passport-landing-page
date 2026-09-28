@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Kamarul Arifin Muzaffar — Student Developer</title>
+    <meta name="description" content="Portfolio of Kamarul Arifin Muzaffar, a student developer interested in web development, AI, IoT and networking.">
+    <meta name="author" content="Kamarul Arifin Muzaffar">
+    <meta name="keywords" content="Kamarul Arifin Muzaffar, Arif, Student Developer, Web Developer, AI, IoT, Networking, SMK Tunas Harapan Pati, TJKT, Laravel, Vue">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="Kamarul Arifin Muzaffar — Student Developer">
+    <meta property="og:description" content="Portfolio of Kamarul Arifin Muzaffar, a student developer interested in web development, AI, IoT and networking.">
+    <meta property="og:image" content="{{ asset('favicon.svg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Kamarul Arifin Muzaffar — Student Developer">
+    <meta property="twitter:description" content="Portfolio of Kamarul Arifin Muzaffar, a student developer interested in web development, AI, IoT and networking.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23172033'/><text x='50' y='65' font-family='sans-serif' font-size='48' font-weight='700' fill='%237DD3FC' text-anchor='middle'>A</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="bg-[#F8FAFC] text-[#172033] antialiased selection:bg-[#DBEAFE] selection:text-[#172033] min-h-screen flex flex-col justify-between">
+
+    <!-- Sticky Responsive Navbar -->
+    <header class="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-md border-b border-[#E2E8F0] transition-all duration-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded-lg p-1">
+                <span class="font-heading font-bold text-lg sm:text-xl tracking-tight text-[#172033] group-hover:text-sky-600 transition-colors">
+                    ARIF<span class="text-sky-500">.</span>DEV
+                </span>
+                <span class="hidden sm:inline-block text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200/70">
+                    Portfolio
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-[#64748B]" aria-label="Main Navigation">
+                <a href="#about" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">About</a>
+                <a href="#skills" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Skills</a>
+                <a href="#projects" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Projects</a>
+                <a href="#experience" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Experience</a>
+                <a href="#organizations" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Organizations</a>
+                <a href="#education" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Education</a>
+                <a href="#contact" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Contact</a>
+            </nav>
+
+            <!-- Actions (Download CV & Mobile Toggle) -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" 
+                   onclick="handleDownloadCv(event)"
+                   class="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium text-slate-800 bg-white hover:bg-slate-50 border border-[#E2E8F0] hover:border-slate-300 rounded-xl shadow-xs transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400">
+                    <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span>Download CV</span>
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button type="button" 
+                        id="mobileMenuToggle" 
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-[#E2E8F0] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 transition" 
+                        aria-expanded="false" 
+                        aria-label="Toggle Navigation Menu">
+                    <svg id="menuOpenIcon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="menuCloseIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-[#E2E8F0] bg-white/95 backdrop-blur-md px-4 pt-3 pb-6 space-y-1 shadow-lg">
+            <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">About</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Skills / Tech Stack</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Featured Projects</a>
+            <a href="#experience" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Experience</a>
+            <a href="#organizations" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Organizations</a>
+            <a href="#education" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Education</a>
+            <a href="#certifications" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Certifications</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        @yield('content')
+    </main>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/40 backdrop-blur-xs p-4 sm:p-6 flex items-center justify-center transition-opacity" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="relative bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 transform transition-all text-left">
+            <button type="button" onclick="closeProjectModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Close modal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div id="modalBadge" class="inline-block text-xs font-mono px-2.5 py-1 rounded-full bg-sky-50 text-sky-800 border border-sky-200 font-medium mb-3">Role</div>
+            <h3 id="modalTitle" class="text-2xl font-heading font-bold text-slate-900">Project Title</h3>
+            <p id="modalSubtitle" class="text-sm font-medium text-sky-600 mb-4">Subtitle</p>
+            <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed mb-6">Description</p>
+            
+            <div class="mb-6">
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Key Highlights & Features</h4>
+                <ul id="modalFeatures" class="space-y-2 text-sm text-slate-700"></ul>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Technologies Used</h4>
+                <div id="modalTech" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+                <button type="button" onclick="closeProjectModal()" class="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition">
+                    Close
+                </button>
+                <a id="modalActionBtn" href="#contact" class="px-4 py-2 text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 rounded-xl transition">
+                    Inquire About Project
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white border-t border-[#E2E8F0] py-12 mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col sm:items-start items-center text-center sm:text-left">
+                <span class="font-heading font-bold text-lg tracking-tight text-[#172033]">
+                    ARIF<span class="text-sky-500">.</span>DEV
+                </span>
+                <p class="text-xs text-[#64748B] mt-1">
+                    Building, learning, and experimenting with technology.
+                </p>
+            </div>
+
+            <!-- Footer Quick Links -->
+            <div class="flex items-center gap-6 text-sm font-medium text-[#64748B]">
+                <a href="https://github.com/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded">
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded">
+                    LinkedIn
+                </a>
+                <a href="mailto:arif@example.com" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded">
+                    Email
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-xs text-[#64748B] font-mono text-center sm:text-right">
+                © 2026 Kamarul Arifin Muzaffar
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const openIcon = document.getElementById('menuOpenIcon');
+        const closeIcon = document.getElementById('menuCloseIcon');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                openIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    openIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // CV Download Handler (Direct download or notification)
+        function handleDownloadCv(event) {
+            // If CV file exists, let it download; otherwise provide a friendly notification
+            alert("Curriculum Vitae (CV) Kamarul Arifin Muzaffar sedang disiapkan atau dapat diminta langsung via email contact di bawah!");
+        }
+
+        // Project Modal Handling
+        function openProjectModal(data) {
+            const modal = document.getElementById('projectModal');
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalSubtitle').textContent = data.subtitle;
+            document.getElementById('modalDesc').textContent = data.description;
+            document.getElementById('modalBadge').textContent = 'Role: ' + data.role;
+
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = '';
+            if (data.features && data.features.length) {
+                data.features.forEach(f => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-center gap-2';
+                    li.innerHTML = `<svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>${f}</span>`;
+                    featuresList.appendChild(li);
+                });
+            }
+
+            const techBox = document.getElementById('modalTech');
+            techBox.innerHTML = '';
+            if (data.technologies && data.technologies.length) {
+                data.technologies.forEach(t => {
+                    const span = document.createElement('span');
+                    span.className = 'text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200';
+                    span.textContent = t;
+                    techBox.appendChild(span);
+                });
+            }
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeProjectModal();
+        });
+    </script>
+</body>
+</html>
