@@ -1,18 +1,23 @@
 /**
  * Realistic Interactive Hanging Lanyard Engine for Arif.dev
+ * 
  * Features:
- * - Pointer-driven physical dragging (mouse + touch)
- * - Dynamic SVG Bezier string curving
- * - Spring & pendulum inertia on release
- * - Subtle hover parallax
- * - First-time "Drag me" hint
- * - Reduced-motion accessibility check
+ * - Natural physical hanging lanyard suspended from the top
+ * - Dynamic SVG Bezier curve ribbon calculation with dual-strand styling
+ * - Pointer-driven physical dragging (mouse + touch) with pointer capture
+ * - Realistic spring & pendulum inertia on release (natural swing settling)
+ * - Proximity hover reaction and 3D card tilt
+ * - Initial smooth drop-in entrance animation on page load
+ * - First-time "Drag me" visual hint with auto-dismiss
+ * - Strict adherence to prefers-reduced-motion
+ * - Non-blocking, high-performance requestAnimationFrame loop
  */
+
 export function initLanyard(containerId = 'lanyardContainer') {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  // Check prefers-reduced-motion
+  // 1. Accessibility: Respect prefers-reduced-motion
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (mediaQuery.matches) {
     // Keep card static in hanging position for users requesting reduced motion
@@ -21,32 +26,36 @@ export function initLanyard(containerId = 'lanyardContainer') {
 
   const svg = document.getElementById('lanyardSvg');
   const strapPath = document.getElementById('lanyardStrap');
+  const strapInnerPath = document.getElementById('lanyardStrapInner');
   const cardGroup = document.getElementById('lanyardCardWrapper');
   const dragHint = document.getElementById('lanyardDragHint');
 
   if (!svg || !strapPath || !cardGroup) return;
 
-  // Anchor and Rest Coordinates (relative to SVG coordinate system)
-  // The SVG viewBox is 360 wide by 580 high
+  // Geometry constants (matching SVG coordinate space 360 x 580)
   const ANCHOR_X = 180;
   const ANCHOR_Y = 0;
-  const REST_LENGTH = 140; // distance from anchor to card clip
+  const REST_LENGTH = 140; // distance from anchor to card clip ring
   const REST_X = ANCHOR_X;
   const REST_Y = ANCHOR_Y + REST_LENGTH;
 
-  // Current Card Position (at clip ring)
+  // Current Card Position (relative to top center ring)
   let currentX = REST_X;
-  let currentY = REST_Y;
+  let currentY = REST_Y - 90; // Start higher for entrance drop
   let targetX = REST_X;
   let targetY = REST_Y;
 
-  // Physics velocities
+  // Physics velocities & angles
   let vx = 0;
   let vy = 0;
-  let rotation = 0;
+  let rotation = -6; // Initial slight tilt for entrance
   let vRot = 0;
 
-  // State flags
+  // Hover tilt targets
+  let hoverTiltX = 0;
+  let hoverTiltY = 0;
+
+  // Interaction states
   let isDragging = false;
   let dragStartX = 0;
   let dragStartY = 0;
@@ -55,106 +64,57 @@ export function initLanyard(containerId = 'lanyardContainer') {
   let hasInteracted = false;
   let animFrameId = null;
 
-  // Initial Drop Entrance
+  // Entrance drop-in state
   let isDroppingIn = true;
-  let dropProgress = 0;
+  let dropTime = 0;
 
-  // Updates the SVG strap bezier curve and card position
+  /**
+   * Updates SVG strap curve and Card 3D transform
+   */
   function updateRender() {
-    // Top clip of card is at (currentX, currentY)
-    // Control points for natural lanyard curve
     const dx = currentX - ANCHOR_X;
-    const dy = Math.max(20, currentY - ANCHOR_Y);
-    
-    // As it swings sideways, the ribbon bows out slightly due to gravity and weight
-    const cp1x = ANCHOR_X + dx * 0.15;
-    const cp1y = ANCHOR_Y + dy * 0.45;
-    const cp2x = currentX - dx * 0.15;
-    const cp2y = currentY - dy * 0.25;
+    const dy = Math.max(30, currentY - ANCHOR_Y);
 
-    // Dual-line strap ribbon
-    strapPath.setAttribute(
-      'd',
-      `M ${ANCHOR_X} ${ANCHOR_Y} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${currentX} ${currentY}`
-    );
+    // Natural catenary/cloth bezier control points
+    const cp1x = ANCHOR_X + dx * 0.18;
+    const cp1y = ANCHOR_Y + dy * 0.42;
+    const cp2x = currentX - dx * 0.14;
+    const cp2y = currentY - dy * 0.22;
 
-    // Transform card position & rotation
-    cardGroup.style.transform = `translate3d(${currentX - 130}px, ${currentY}px, 0px) rotate(${rotation}deg)`;
-  }
-
-  // Animation Loop for Physics & Drop-in
-  function loop() {
-    if (isDroppingIn) {
-      dropProgress += 0.035;
-      // Soft spring bounce from top
-      const bounce = Math.sin(dropProgress * Math.PI) * Math.exp(-dropProgress * 2.5);
-      currentY = REST_Y + bounce * 40;
-      rotation = Math.sin(dropProgress * Math.PI * 1.5) * 8 * Math.exp(-dropProgress * 2);
-
-      updateRender();
-
-      if (dropProgress >= 1.5) {
-        isDroppingIn = false;
-        currentX = REST_X;
-        currentY = REST_Y;
-        rotation = 0;
-        updateRender();
-      } else {
-        animFrameId = requestAnimationFrame(loop);
-        return;
-      }
+    const pathData = `M ${ANCHOR_X} ${ANCHOR_Y} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${currentX} ${currentY}`;
+    strapPath.setAttribute('d', pathData);
+    if (strapInnerPath) {
+      strapInnerPath.setAttribute('d', pathData);
     }
 
-    if (isDragging) {
-      // Smoothly track pointer position
-      const targetDx = targetX - currentX;
-      const targetDy = targetY - currentY;
-      currentX += targetDx * 0.4;
-      currentY += targetDy * 0.4;
+    // Card transform (centered horizontally at currentX - 130 because card is 260px wide)
+    // Add subtle 3D tilt perspective
+    const rotateZ = rotation.toFixed(2);
+    const tiltX = (hoverTiltY * 8).toFixed(2);
+    const tiltY = (hoverTiltX * 8).toFixed(2);
 
-      // Rotate card towards drag angle
-      const angle = Math.atan2(currentX - ANCHOR_X, currentY - ANCHOR_Y) * (180 / Math.PI);
-      const targetRot = Math.max(-28, Math.min(28, angle * 0.7));
-      rotation += (targetRot - rotation) * 0.35;
+    cardGroup.style.transform = `translate3d(${(currentX - 130).toFixed(1)}px, ${currentY.toFixed(1)}px, 0px) rotate(${rotateZ}deg) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+  }
 
-      updateRender();
-      animFrameId = requestAnimationFrame(loop);
-    } else {
-      // Spring & Pendulum Simulation
-      const k = 0.08; // Spring stiffness
-      const damping = 0.92; // Inertia damping
-      const gravity = 0.4;
-
-      // Force toward rest position
-      const fx = -k * (currentX - REST_X);
-      const fy = -k * (currentY - REST_Y);
-
-      vx = (vx + fx) * damping;
-      vy = (vy + fy + gravity) * damping;
-
-      currentX += vx;
-      currentY += vy;
-
-      // Rotational pendulum oscillation
-      const rotRest = Math.atan2(currentX - ANCHOR_X, currentY - ANCHOR_Y) * (180 / Math.PI) * 0.8;
-      const fRot = -0.06 * (rotation - rotRest);
-      vRot = (vRot + fRot) * 0.91;
-      rotation += vRot;
+  /**
+   * Main Physics Animation Loop
+   */
+  function loop() {
+    // 1. Entrance Drop-In Animation
+    if (isDroppingIn) {
+      dropTime += 0.04;
+      // Damped harmonic oscillation from drop height
+      const t = dropTime * Math.PI * 2.2;
+      const decay = Math.exp(-dropTime * 3.5);
+      
+      currentY = REST_Y - (80 * Math.cos(t) * decay);
+      rotation = -6 * Math.cos(t * 0.9) * decay;
+      currentX = REST_X + (12 * Math.sin(t) * decay);
 
       updateRender();
 
-      // Check if settled to stop running frame loop
-      const isSettled =
-        Math.abs(currentX - REST_X) < 0.15 &&
-        Math.abs(currentY - REST_Y) < 0.15 &&
-        Math.abs(vx) < 0.05 &&
-        Math.abs(vy) < 0.05 &&
-        Math.abs(rotation) < 0.1 &&
-        Math.abs(vRot) < 0.05;
-
-      if (!isSettled) {
-        animFrameId = requestAnimationFrame(loop);
-      } else {
+      if (dropTime > 1.2 || (decay < 0.005)) {
+        isDroppingIn = false;
         currentX = REST_X;
         currentY = REST_Y;
         rotation = 0;
@@ -162,27 +122,112 @@ export function initLanyard(containerId = 'lanyardContainer') {
         vy = 0;
         vRot = 0;
         updateRender();
-        animFrameId = null;
+      } else {
+        animFrameId = requestAnimationFrame(loop);
+        return;
       }
+    }
+
+    // 2. User is Dragging
+    if (isDragging) {
+      // Smooth interpolation toward target pointer
+      const targetDx = targetX - currentX;
+      const targetDy = targetY - currentY;
+      
+      // Calculate tracking velocity
+      vx = targetDx * 0.38;
+      vy = targetDy * 0.38;
+      currentX += vx;
+      currentY += vy;
+
+      // Card angle naturally aligns with pull direction relative to anchor
+      const pullAngle = Math.atan2(currentX - ANCHOR_X, currentY - ANCHOR_Y) * (180 / Math.PI);
+      const clampedAngle = Math.max(-30, Math.min(30, pullAngle * 0.75));
+      const rotDiff = clampedAngle - rotation;
+      vRot = rotDiff * 0.32;
+      rotation += vRot;
+
+      updateRender();
+      animFrameId = requestAnimationFrame(loop);
+      return;
+    }
+
+    // 3. User Released: Natural Spring & Pendulum Oscillation
+    const springK = 0.072; // Spring restoring coefficient
+    const damping = 0.915; // Velocity damping factor
+    const rotK = 0.085;    // Rotational restoring coefficient
+    const rotDamping = 0.895;
+
+    // Restoring force towards equilibrium rest point (accounting for hover offset)
+    const targetRestX = REST_X + (hoverTiltX * 10);
+    const targetRestY = REST_Y + (hoverTiltY * 6);
+
+    const fx = -springK * (currentX - targetRestX);
+    const fy = -springK * (currentY - targetRestY);
+
+    vx = (vx + fx) * damping;
+    vy = (vy + fy) * damping;
+
+    currentX += vx;
+    currentY += vy;
+
+    // Natural pendulum torque: card aligns with the rope angle plus inertia
+    const ropeAngle = Math.atan2(currentX - ANCHOR_X, currentY - ANCHOR_Y) * (180 / Math.PI);
+    const targetCardRot = (ropeAngle * 0.82) + (hoverTiltX * 4);
+    const torque = -rotK * (rotation - targetCardRot);
+
+    vRot = (vRot + torque) * rotDamping;
+    rotation += vRot;
+
+    updateRender();
+
+    // Check if settled to rest
+    const isSettled =
+      Math.abs(currentX - targetRestX) < 0.08 &&
+      Math.abs(currentY - targetRestY) < 0.08 &&
+      Math.abs(vx) < 0.04 &&
+      Math.abs(vy) < 0.04 &&
+      Math.abs(rotation - (hoverTiltX * 4)) < 0.08 &&
+      Math.abs(vRot) < 0.04;
+
+    if (!isSettled) {
+      animFrameId = requestAnimationFrame(loop);
+    } else {
+      currentX = targetRestX;
+      currentY = targetRestY;
+      rotation = hoverTiltX * 4;
+      vx = 0;
+      vy = 0;
+      vRot = 0;
+      updateRender();
+      animFrameId = null;
     }
   }
 
-  // Pointer Event Handlers
+  /**
+   * Transforms screen pointer coordinates to SVG coordinate space (360 x 580)
+   */
   function getSvgPoint(e) {
     const rect = svg.getBoundingClientRect();
-    const scaleX = 360 / rect.width;
-    const scaleY = 580 / rect.height;
+    const scaleX = 360 / Math.max(1, rect.width);
+    const scaleY = 580 / Math.max(1, rect.height);
     return {
       x: (e.clientX - rect.left) * scaleX,
       y: (e.clientY - rect.top) * scaleY,
     };
   }
 
+  /**
+   * Pointer Down - Initiate Dragging
+   */
   function handlePointerDown(e) {
+    // Only respond to primary button or touch
+    if (e.button !== undefined && e.button !== 0) return;
+
     e.preventDefault();
-    if (e.target.setPointerCapture) {
+    if (cardGroup.setPointerCapture) {
       try {
-        e.target.setPointerCapture(e.pointerId);
+        cardGroup.setPointerCapture(e.pointerId);
       } catch (err) {}
     }
 
@@ -194,20 +239,19 @@ export function initLanyard(containerId = 'lanyardContainer') {
     dragStartY = pt.y;
     cardStartX = currentX;
     cardStartY = currentY;
-
     targetX = currentX;
     targetY = currentY;
 
     cardGroup.classList.add('cursor-grabbing');
     cardGroup.classList.remove('cursor-grab');
 
-    // Dismiss "Drag me" hint on first interaction
+    // Dismiss first-time "Drag me" hint
     if (!hasInteracted) {
       hasInteracted = true;
       if (dragHint) {
         dragHint.style.opacity = '0';
-        dragHint.style.transform = 'translateY(8px)';
-        setTimeout(() => dragHint.remove(), 400);
+        dragHint.style.transform = 'translate(-50%, 8px)';
+        setTimeout(() => dragHint.remove(), 350);
       }
     }
 
@@ -216,64 +260,95 @@ export function initLanyard(containerId = 'lanyardContainer') {
     }
   }
 
+  /**
+   * Pointer Move - Track drag or proximity hover tilt
+   */
   function handlePointerMove(e) {
     if (!isDragging) {
-      // Hover parallax tilt effect when cursor is over the card
-      const rect = cardGroup.getBoundingClientRect();
-      if (
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
-      ) {
-        const relX = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-        rotation = relX * 2.5;
-        updateRender();
+      // Proximity Hover Reaction when cursor is over or near container
+      const containerRect = container.getBoundingClientRect();
+      const isInside =
+        e.clientX >= containerRect.left &&
+        e.clientX <= containerRect.right &&
+        e.clientY >= containerRect.top &&
+        e.clientY <= containerRect.bottom;
+
+      if (isInside) {
+        const normX = ((e.clientX - containerRect.left) / containerRect.width - 0.5) * 2;
+        const normY = ((e.clientY - containerRect.top) / containerRect.height - 0.5) * 2;
+        hoverTiltX = normX * 0.6;
+        hoverTiltY = normY * 0.4;
+      } else {
+        hoverTiltX = 0;
+        hoverTiltY = 0;
+      }
+
+      if (!animFrameId && (hoverTiltX !== 0 || hoverTiltY !== 0)) {
+        animFrameId = requestAnimationFrame(loop);
       }
       return;
     }
 
+    // Active drag calculation with elastic limits
     const pt = getSvgPoint(e);
     const deltaX = pt.x - dragStartX;
     const deltaY = pt.y - dragStartY;
 
-    // Apply elastic limits so card cannot be dragged endlessly off-screen
     let nextX = cardStartX + deltaX;
     let nextY = cardStartY + deltaY;
 
-    // Clamp horizontally to container bounds
-    nextX = Math.max(50, Math.min(310, nextX));
-    // Clamp vertically (cannot push above anchor or pull too far down)
-    nextY = Math.max(60, Math.min(320, nextY));
+    // Clamp horizontally to container bounds (safe margin so it doesn't clip)
+    nextX = Math.max(45, Math.min(315, nextX));
+
+    // Clamp vertically (cannot push above anchor or pull off page)
+    nextY = Math.max(65, Math.min(340, nextY));
 
     targetX = nextX;
     targetY = nextY;
   }
 
+  /**
+   * Pointer Up / Cancel - Release Dragging
+   */
   function handlePointerUp(e) {
     if (!isDragging) return;
     isDragging = false;
 
+    if (cardGroup.releasePointerCapture) {
+      try {
+        cardGroup.releasePointerCapture(e.pointerId);
+      } catch (err) {}
+    }
+
     cardGroup.classList.remove('cursor-grabbing');
     cardGroup.classList.add('cursor-grab');
 
-    // Release velocity based on final pull
-    vx = (targetX - currentX) * 0.4;
-    vy = (targetY - currentY) * 0.4;
-    vRot = (rotation) * -0.15;
+    // Inherit drag release momentum for satisfying swing
+    vx = (targetX - currentX) * 0.45;
+    vy = (targetY - currentY) * 0.45;
+    vRot = rotation * -0.18;
 
     if (!animFrameId) {
       animFrameId = requestAnimationFrame(loop);
     }
   }
 
-  // Attach Pointer Events directly to the Card Element for maximum precision
+  // Pointer Leave on Container resets proximity hover
+  container.addEventListener('pointerleave', () => {
+    hoverTiltX = 0;
+    hoverTiltY = 0;
+    if (!isDragging && !animFrameId) {
+      animFrameId = requestAnimationFrame(loop);
+    }
+  });
+
+  // Attach Pointer Events
   cardGroup.addEventListener('pointerdown', handlePointerDown);
   window.addEventListener('pointermove', handlePointerMove, { passive: false });
   window.addEventListener('pointerup', handlePointerUp);
   window.addEventListener('pointercancel', handlePointerUp);
 
-  // Start Drop In animation
+  // Trigger entrance drop
   updateRender();
   animFrameId = requestAnimationFrame(loop);
 }

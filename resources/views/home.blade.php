@@ -103,6 +103,14 @@
                               stroke-width="14" 
                               stroke-linecap="round" 
                               filter="url(#strapShadow)" />
+                        <!-- Inner Woven Accent Stitch Line -->
+                        <path id="lanyardStrapInner" 
+                              d="M 180 0 C 180 60, 180 100, 180 140" 
+                              stroke="#38BDF8" 
+                              stroke-width="2.5" 
+                              stroke-dasharray="6 3"
+                              stroke-linecap="round" 
+                              opacity="0.85" />
                     </svg>
 
                     <!-- The Lanyard ID Card Wrapper (Draggable Physical Object) -->
