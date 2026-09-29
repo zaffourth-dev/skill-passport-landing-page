@@ -51,11 +51,11 @@ function initNavbarScroll() {
 
     const handleScroll = () => {
         if (window.scrollY > 20) {
-            navbar.classList.add('shadow-xs', 'bg-white/95', 'border-[#E2E8F0]');
-            navbar.classList.remove('bg-white/80', 'border-transparent');
+            navbar.classList.add('shadow-xs', 'bg-[#FFFBF5]/95', 'border-[#F7DEC8]');
+            navbar.classList.remove('bg-[#FFFBF5]/90', 'border-transparent');
         } else {
-            navbar.classList.remove('shadow-xs', 'bg-white/95');
-            navbar.classList.add('bg-white/80', 'border-[#E2E8F0]');
+            navbar.classList.remove('shadow-xs', 'bg-[#FFFBF5]/95');
+            navbar.classList.add('bg-[#FFFBF5]/90', 'border-[#F7DEC8]');
         }
     };
 

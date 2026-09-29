@@ -22,8 +22,8 @@
     <meta property="twitter:title" content="Kamarul Arifin Muzaffar — Student Developer">
     <meta property="twitter:description" content="Portfolio of Kamarul Arifin Muzaffar, a student developer interested in web development, AI, IoT and networking.">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23172033'/><text x='50' y='65' font-family='sans-serif' font-size='48' font-weight='700' fill='%237DD3FC' text-anchor='middle'>A</text></svg>">
+    <!-- Favicon with Coral Wave styling -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23B0183D'/><text x='50' y='65' font-family='sans-serif' font-size='48' font-weight='700' fill='%23FFD464' text-anchor='middle'>A</text></svg>">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,38 +32,38 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-[#F8FAFC] text-[#172033] antialiased selection:bg-[#DBEAFE] selection:text-[#172033] min-h-screen flex flex-col justify-between">
+<body class="bg-[#FFFBF5] text-[#2E0A14] antialiased selection:bg-[#FFD464] selection:text-[#B0183D] min-h-screen flex flex-col justify-between">
 
-    <!-- Sticky Responsive Navbar -->
-    <header class="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-md border-b border-[#E2E8F0] transition-all duration-200">
+    <!-- Sticky Responsive Navbar with Coral Wave palette -->
+    <header class="sticky top-0 z-50 w-full bg-[#FFFBF5]/90 backdrop-blur-md border-b border-[#F7DEC8] transition-all duration-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#hero" class="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded-lg p-1">
-                <span class="font-heading font-bold text-lg sm:text-xl tracking-tight text-[#172033] group-hover:text-sky-600 transition-colors">
-                    ARIF<span class="text-sky-500">.</span>DEV
+            <a href="#hero" class="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded-lg p-1">
+                <span class="font-heading font-bold text-lg sm:text-xl tracking-tight text-[#2E0A14] group-hover:text-[#E23C64] transition-colors">
+                    ARIF<span class="text-[#FF5E5E]">.</span>DEV
                 </span>
-                <span class="hidden sm:inline-block text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200/70">
+                <span class="hidden sm:inline-block text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-semibold">
                     Portfolio
                 </span>
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-[#64748B]" aria-label="Main Navigation">
-                <a href="#about" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">About</a>
-                <a href="#skills" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Skills</a>
-                <a href="#projects" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Projects</a>
-                <a href="#experience" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Experience</a>
-                <a href="#organizations" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Organizations</a>
-                <a href="#education" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Education</a>
-                <a href="#contact" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded px-1 py-0.5">Contact</a>
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-[#7A3546]" aria-label="Main Navigation">
+                <a href="#about" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">About</a>
+                <a href="#skills" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Skills</a>
+                <a href="#projects" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Projects</a>
+                <a href="#experience" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Experience</a>
+                <a href="#organizations" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Organizations</a>
+                <a href="#education" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Education</a>
+                <a href="#contact" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Contact</a>
             </nav>
 
             <!-- Actions (Download CV & Mobile Toggle) -->
             <div class="flex items-center gap-3">
                 <a href="#contact" 
                    onclick="handleDownloadCv(event)"
-                   class="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium text-slate-800 bg-white hover:bg-slate-50 border border-[#E2E8F0] hover:border-slate-300 rounded-xl shadow-xs transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400">
-                    <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   class="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium text-[#7A3546] bg-white hover:bg-[#FCEDD8]/70 border border-[#F7DEC8] hover:border-[#FF5E5E]/50 rounded-xl shadow-xs transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E]">
+                    <svg class="w-4 h-4 text-[#FF5E5E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
                     <span>Download CV</span>
@@ -72,7 +72,7 @@
                 <!-- Mobile Hamburger Button -->
                 <button type="button" 
                         id="mobileMenuToggle" 
-                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-[#E2E8F0] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 transition" 
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-[#7A3546] hover:text-[#2E0A14] hover:bg-[#FCEDD8]/60 border border-[#F7DEC8] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] transition" 
                         aria-expanded="false" 
                         aria-label="Toggle Navigation Menu">
                     <svg id="menuOpenIcon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,15 +86,15 @@
         </div>
 
         <!-- Mobile Navigation Drawer -->
-        <div id="mobileMenu" class="hidden md:hidden border-b border-[#E2E8F0] bg-white/95 backdrop-blur-md px-4 pt-3 pb-6 space-y-1 shadow-lg">
-            <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">About</a>
-            <a href="#skills" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Skills / Tech Stack</a>
-            <a href="#projects" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Featured Projects</a>
-            <a href="#experience" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Experience</a>
-            <a href="#organizations" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Organizations</a>
-            <a href="#education" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Education</a>
-            <a href="#certifications" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Certifications</a>
-            <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition">Contact</a>
+        <div id="mobileMenu" class="hidden md:hidden border-b border-[#F7DEC8] bg-[#FFFBF5]/98 backdrop-blur-md px-4 pt-3 pb-6 space-y-1 shadow-lg">
+            <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">About</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Skills / Tech Stack</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Featured Projects</a>
+            <a href="#experience" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Experience</a>
+            <a href="#organizations" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Organizations</a>
+            <a href="#education" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Education</a>
+            <a href="#certifications" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Certifications</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Contact</a>
         </div>
     </header>
 
@@ -104,33 +104,33 @@
     </main>
 
     <!-- Project Details Modal -->
-    <div id="projectModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/40 backdrop-blur-xs p-4 sm:p-6 flex items-center justify-center transition-opacity" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="relative bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 transform transition-all text-left">
-            <button type="button" onclick="closeProjectModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400" aria-label="Close modal">
+    <div id="projectModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-[#2E0A14]/40 backdrop-blur-xs p-4 sm:p-6 flex items-center justify-center transition-opacity" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="relative bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-[#F7DEC8] transform transition-all text-left">
+            <button type="button" onclick="closeProjectModal()" class="absolute top-5 right-5 text-[#7A3546] hover:text-[#2E0A14] p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF5E5E]" aria-label="Close modal">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            <div id="modalBadge" class="inline-block text-xs font-mono px-2.5 py-1 rounded-full bg-sky-50 text-sky-800 border border-sky-200 font-medium mb-3">Role</div>
-            <h3 id="modalTitle" class="text-2xl font-heading font-bold text-slate-900">Project Title</h3>
-            <p id="modalSubtitle" class="text-sm font-medium text-sky-600 mb-4">Subtitle</p>
-            <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed mb-6">Description</p>
+            <div id="modalBadge" class="inline-block text-xs font-mono px-2.5 py-1 rounded-full bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-semibold mb-3">Role</div>
+            <h3 id="modalTitle" class="text-2xl font-heading font-bold text-[#2E0A14]">Project Title</h3>
+            <p id="modalSubtitle" class="text-sm font-medium text-[#E23C64] mb-4">Subtitle</p>
+            <p id="modalDesc" class="text-[#7A3546] text-sm leading-relaxed mb-6">Description</p>
             
             <div class="mb-6">
-                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Key Highlights & Features</h4>
-                <ul id="modalFeatures" class="space-y-2 text-sm text-slate-700"></ul>
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-[#B0183D] mb-3">Key Highlights & Features</h4>
+                <ul id="modalFeatures" class="space-y-2 text-sm text-[#2E0A14]"></ul>
             </div>
 
             <div class="mb-6">
-                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Technologies Used</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-[#B0183D] mb-2">Technologies Used</h4>
                 <div id="modalTech" class="flex flex-wrap gap-2"></div>
             </div>
 
-            <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
-                <button type="button" onclick="closeProjectModal()" class="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition">
+            <div class="flex items-center justify-end gap-3 pt-4 border-t border-[#F7DEC8]">
+                <button type="button" onclick="closeProjectModal()" class="px-4 py-2 text-sm font-medium text-[#7A3546] hover:bg-[#FCEDD8]/60 rounded-xl transition">
                     Close
                 </button>
-                <a id="modalActionBtn" href="#contact" class="px-4 py-2 text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 rounded-xl transition">
+                <a id="modalActionBtn" href="#contact" class="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#FF5E5E] via-[#E23C64] to-[#B0183D] hover:opacity-95 shadow-md shadow-[#E23C64]/20 rounded-xl transition">
                     Inquire About Project
                 </a>
             </div>
@@ -138,32 +138,32 @@
     </div>
 
     <!-- Footer -->
-    <footer class="w-full bg-white border-t border-[#E2E8F0] py-12 mt-20">
+    <footer class="w-full bg-white border-t border-[#F7DEC8] py-12 mt-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex flex-col sm:items-start items-center text-center sm:text-left">
-                <span class="font-heading font-bold text-lg tracking-tight text-[#172033]">
-                    ARIF<span class="text-sky-500">.</span>DEV
+                <span class="font-heading font-bold text-lg tracking-tight text-[#2E0A14]">
+                    ARIF<span class="text-[#FF5E5E]">.</span>DEV
                 </span>
-                <p class="text-xs text-[#64748B] mt-1">
+                <p class="text-xs text-[#7A3546] mt-1">
                     Building, learning, and experimenting with technology.
                 </p>
             </div>
 
             <!-- Footer Quick Links -->
-            <div class="flex items-center gap-6 text-sm font-medium text-[#64748B]">
-                <a href="https://github.com/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded">
+            <div class="flex items-center gap-6 text-sm font-medium text-[#7A3546]">
+                <a href="https://github.com/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
                     GitHub
                 </a>
-                <a href="https://linkedin.com/in/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded">
+                <a href="https://linkedin.com/in/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
                     LinkedIn
                 </a>
-                <a href="mailto:arif@example.com" class="hover:text-[#172033] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded">
+                <a href="mailto:arif@example.com" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
                     Email
                 </a>
             </div>
 
             <!-- Copyright -->
-            <div class="text-xs text-[#64748B] font-mono text-center sm:text-right">
+            <div class="text-xs text-[#7A3546] font-mono text-center sm:text-right">
                 © 2026 Kamarul Arifin Muzaffar
             </div>
         </div>
@@ -199,7 +199,6 @@
 
         // CV Download Handler (Direct download or notification)
         function handleDownloadCv(event) {
-            // If CV file exists, let it download; otherwise provide a friendly notification
             alert("Curriculum Vitae (CV) Kamarul Arifin Muzaffar sedang disiapkan atau dapat diminta langsung via email contact di bawah!");
         }
 
@@ -217,7 +216,7 @@
                 data.features.forEach(f => {
                     const li = document.createElement('li');
                     li.className = 'flex items-center gap-2';
-                    li.innerHTML = `<svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>${f}</span>`;
+                    li.innerHTML = `<svg class="w-4 h-4 text-[#FF5E5E] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>${f}</span>`;
                     featuresList.appendChild(li);
                 });
             }
@@ -227,7 +226,7 @@
             if (data.technologies && data.technologies.length) {
                 data.technologies.forEach(t => {
                     const span = document.createElement('span');
-                    span.className = 'text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200';
+                    span.className = 'text-xs font-mono px-2.5 py-1 rounded-md bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-medium';
                     span.textContent = t;
                     techBox.appendChild(span);
                 });

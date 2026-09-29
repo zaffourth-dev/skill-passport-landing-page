@@ -8,22 +8,27 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  --color-canvas: #F8FAFC;
-  --color-surface: #FFFFFF;
-  --color-brand-primary: #172033;
-  --color-brand-secondary: #64748B;
-  --color-brand-border: #E2E8F0;
+  /* Official Coral Wave Color Palette */
+  --color-coral-cream: #FCEDD8;
+  --color-coral-yellow: #FFD464;
+  --color-coral-salmon: #FF5E5E;
+  --color-coral-rose: #E23C64;
+  --color-coral-ruby: #B0183D;
 
-  --color-pastel-sky: #7DD3FC;
-  --color-pastel-mint: #A7F3D0;
-  --color-pastel-lavender: #C4B5FD;
-  --color-pastel-blue: #DBEAFE;
+  /* Harmonious Derived UI Tokens */
+  --color-canvas: #FFFBF5;
+  --color-surface: #FFFFFF;
+  --color-brand-primary: #B0183D;
+  --color-brand-dark: #2E0A14;
+  --color-brand-secondary: #7A3546;
+  --color-brand-border: #F7DEC8;
+  --color-brand-border-subtle: #FBEBDD;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #F8FAFC;
-  color: #172033;
+  background-color: #FFFBF5;
+  color: #2E0A14;
   font-family: 'Inter', sans-serif;
 }
 
@@ -127,14 +132,14 @@ code, pre, .font-mono {
   animation: softPulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Subtle holographic card shine */
+/* Coral Wave Holographic Card Shine */
 .hologram-sheen {
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(125, 211, 252, 0.18) 35%,
-    rgba(196, 181, 253, 0.22) 50%,
-    rgba(167, 243, 208, 0.18) 65%,
+    rgba(255, 212, 100, 0.22) 25%,
+    rgba(255, 94, 94, 0.24) 50%,
+    rgba(226, 60, 100, 0.22) 75%,
     rgba(255, 255, 255, 0) 100%
   );
   background-size: 200% 200%;
