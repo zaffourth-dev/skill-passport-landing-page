@@ -1,5 +1,7 @@
 import { initLanyard } from './lanyard.js';
 import { initMarquee } from './marquee.js';
+import { initTechStack } from './techstack.js';
+import { initProjectShowcase } from './projects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Interactive Lanyard Hero Visual
@@ -8,13 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Initialize About Infinite Card Marquee
     initMarquee('aboutMarqueeContainer', 'aboutMarqueeTrack');
 
-    // 3. Scroll Reveal System using IntersectionObserver
+    // 3. Initialize Tech Stack Premium Interactions
+    initTechStack('skills');
+
+    // 4. Initialize Featured Projects Scroll-Driven Showcase
+    initProjectShowcase('projects');
+
+    // 5. Scroll Reveal System using IntersectionObserver
     initScrollReveal();
 
-    // 4. Dynamic Navbar Scroll Transition
+    // 6. Dynamic Navbar Scroll Transition
     initNavbarScroll();
 
-    // 5. Smooth Anchor Scrolling
+    // 7. Smooth Anchor Scrolling
     initSmoothScroll();
 });
 

@@ -355,7 +355,11 @@
     </section>
 
     <!-- ==================== 3. SKILLS / TECH STACK ==================== -->
-    <section id="skills" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <section id="skills" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 relative">
+        <!-- Subtle floating pastel shapes in background -->
+        <div class="absolute -top-12 left-6 w-72 h-72 bg-gradient-to-tr from-[#FFD464]/15 to-[#FF5E5E]/15 rounded-full blur-3xl -z-10 pointer-events-none animate-tech-float-1"></div>
+        <div class="absolute -bottom-10 right-6 w-80 h-80 bg-gradient-to-br from-[#E23C64]/15 to-[#B0183D]/15 rounded-full blur-3xl -z-10 pointer-events-none animate-tech-float-2"></div>
+
         <div class="text-left mb-10">
             <span class="text-xs font-mono font-semibold uppercase tracking-wider text-[#E23C64]">Core Capabilities</span>
             <h2 class="text-2xl sm:text-3xl font-heading font-bold text-[#2E0A14] mt-1">
@@ -366,22 +370,76 @@
             </p>
         </div>
 
+        @php
+            $categoryAccents = [
+                'Programming' => [
+                    'spotlight' => 'rgba(255, 94, 94, 0.09)',
+                    'dot' => 'bg-[#FF5E5E]',
+                    'badge_bg' => 'bg-[#FCEDD8]',
+                    'badge_text' => 'text-[#B0183D]',
+                    'badge_border' => 'border-[#F7DEC8]',
+                ],
+                'Web Development' => [
+                    'spotlight' => 'rgba(56, 189, 248, 0.09)',
+                    'dot' => 'bg-[#0284C7]',
+                    'badge_bg' => 'bg-[#E0F2FE]',
+                    'badge_text' => 'text-[#0369A1]',
+                    'badge_border' => 'border-sky-200',
+                ],
+                'Database' => [
+                    'spotlight' => 'rgba(168, 85, 247, 0.09)',
+                    'dot' => 'bg-[#9333EA]',
+                    'badge_bg' => 'bg-[#F3E8FF]',
+                    'badge_text' => 'text-[#7E22CE]',
+                    'badge_border' => 'border-purple-200',
+                ],
+                'Tools' => [
+                    'spotlight' => 'rgba(16, 185, 129, 0.09)',
+                    'dot' => 'bg-[#059669]',
+                    'badge_bg' => 'bg-[#ECFDF5]',
+                    'badge_text' => 'text-[#047857]',
+                    'badge_border' => 'border-emerald-200',
+                ],
+                'Networking' => [
+                    'spotlight' => 'rgba(245, 158, 11, 0.09)',
+                    'dot' => 'bg-[#D97706]',
+                    'badge_bg' => 'bg-[#FEF3C7]',
+                    'badge_text' => 'text-[#B45309]',
+                    'badge_border' => 'border-amber-200',
+                ],
+            ];
+        @endphp
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($skills as $category => $categorySkills)
-                <div class="reveal-item stagger-{{ ($loop->index % 4) + 1 }} bg-white rounded-2xl border border-[#F7DEC8] p-6 shadow-xs hover:border-[#FF5E5E]/50 hover:shadow-sm transition-all duration-200">
-                    <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#F7DEC8]/60">
-                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base">
+                @php
+                    $accent = $categoryAccents[$category] ?? [
+                        'spotlight' => 'rgba(255, 94, 94, 0.08)',
+                        'dot' => 'bg-[#FF5E5E]',
+                        'badge_bg' => 'bg-[#FCEDD8]',
+                        'badge_text' => 'text-[#B0183D]',
+                        'badge_border' => 'border-[#F7DEC8]',
+                    ];
+                @endphp
+                <div class="tech-card tech-stagger-{{ $loop->iteration }} bg-white rounded-2xl border border-[#F7DEC8] p-6 shadow-xs hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                    <!-- Cursor-following hover spotlight -->
+                    <div class="tech-spotlight-layer" style="--spotlight-color: {{ $accent['spotlight'] }};"></div>
+
+                    <!-- Card Header -->
+                    <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#F7DEC8]/60 relative z-10">
+                        <h3 class="tech-card-title font-heading font-semibold text-[#2E0A14] text-base">
                             {{ $category }}
                         </h3>
-                        <span class="text-xs font-mono text-[#B0183D] bg-[#FCEDD8] px-2.5 py-0.5 rounded-full border border-[#F7DEC8] font-medium">
+                        <span class="tech-card-badge text-xs font-mono {{ $accent['badge_text'] }} {{ $accent['badge_bg'] }} px-2.5 py-0.5 rounded-full border {{ $accent['badge_border'] }} font-medium shadow-2xs">
                             {{ count($categorySkills) }} tools
                         </span>
                     </div>
 
-                    <div class="flex flex-wrap gap-2">
+                    <!-- Interactive Tool Pills with Signal Effect -->
+                    <div class="flex flex-wrap gap-2 relative z-10">
                         @foreach($categorySkills as $skill)
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-[#7A3546] bg-[#FFFBF5] hover:bg-[#FCEDD8] hover:text-[#B0183D] border border-[#F7DEC8] hover:border-[#FF5E5E]/60 transition-all duration-150 cursor-default select-none hover:-translate-y-0.5 hover:shadow-2xs">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#FF5E5E]"></span>
+                            <span class="tech-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-[#7A3546] bg-[#FFFBF5] hover:bg-[#FCEDD8] hover:text-[#B0183D] border border-[#F7DEC8] hover:border-slate-300 transition-all cursor-default select-none shadow-2xs">
+                                <span class="tech-pill-dot w-1.5 h-1.5 rounded-full {{ $accent['dot'] }}"></span>
                                 {{ $skill->name }}
                             </span>
                         @endforeach
@@ -391,42 +449,62 @@
         </div>
     </section>
 
-    <!-- ==================== 4. FEATURED PROJECTS ==================== -->
+    <!-- ==================== 4. FEATURED PROJECTS (SCROLL-DRIVEN SHOWCASE) ==================== -->
     <section id="projects" class="reveal-item max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <!-- Project Showcase Header with Dynamic Moving Index -->
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
-                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-[#E23C64]">Selected Works</span>
-                <h2 class="text-2xl sm:text-3xl font-heading font-bold text-[#2E0A14] mt-1">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-[#E23C64]">Selected Works</span>
+                    <span class="text-xs font-mono text-slate-300">•</span>
+                    <!-- Moving Project Index Indicator (01 / 03 ATLAS MBG) -->
+                    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FCEDD8] border border-[#F7DEC8] text-xs font-mono font-semibold text-[#B0183D]">
+                        <span id="projectActiveIndex" class="project-index-number">01</span>
+                        <span class="opacity-60">/</span>
+                        <span>03</span>
+                        <span class="opacity-40">•</span>
+                        <span id="projectActiveName" class="truncate max-w-[130px] font-sans font-medium text-[#2E0A14]">ATLAS MBG</span>
+                    </div>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-heading font-bold text-[#2E0A14] mt-1.5">
                     Featured Projects
                 </h2>
                 <p class="text-[#7A3546] text-sm mt-1">
                     Practical digital solutions built with clean code and purpose.
                 </p>
             </div>
-            <span class="text-xs font-mono text-[#B0183D] bg-[#FCEDD8] px-3 py-1 rounded-full border border-[#F7DEC8] font-medium">
+            <span class="text-xs font-mono text-[#B0183D] bg-[#FCEDD8] px-3 py-1 rounded-full border border-[#F7DEC8] font-medium shadow-2xs w-fit">
                 ● 3 MVP Showcases
             </span>
         </div>
 
+        <!-- Sequential Project Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($projects as $project)
-                <div class="reveal-item stagger-{{ $loop->iteration }} bg-white rounded-3xl border border-[#F7DEC8] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-[#FF5E5E]/50 hover:-translate-y-1.5 transition-all duration-300 group">
-                    <!-- Project Visual Banner with Coral Wave Gradient -->
-                    <div class="h-44 bg-gradient-to-br from-[#FCEDD8] via-[#FFF9F2] to-[#FFD464]/25 p-6 flex flex-col justify-between border-b border-[#F7DEC8] relative overflow-hidden">
+                <div class="project-card project-wipe-{{ $loop->iteration }} bg-white rounded-3xl border border-[#F7DEC8] overflow-hidden flex flex-col justify-between shadow-xs hover:border-[#FF5E5E]/60 transition-all duration-300 group"
+                     data-project-index="{{ $loop->index }}">
+                    
+                    <!-- Moving Edge Scan Highlight on Hover -->
+                    <div class="project-edge-scan absolute top-0 left-0 w-28 h-[2.5px] bg-gradient-to-r from-transparent via-[#FF5E5E] to-transparent pointer-events-none z-20"></div>
+
+                    <!-- Project Visual Banner with slow background gradient shift -->
+                    <div class="project-header-bg h-44 bg-gradient-to-br from-[#FCEDD8] via-[#FFF9F2] to-[#FFD464]/25 p-6 flex flex-col justify-between border-b border-[#F7DEC8] relative overflow-hidden">
+                        <!-- Ambient Glow -->
                         <div class="absolute -right-4 -bottom-4 w-28 h-28 rounded-full bg-[#FF5E5E]/20 blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+                        
                         <div class="flex items-center justify-between z-10">
-                            <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-xs text-[#7A3546] border border-[#F7DEC8] font-medium">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[#7A3546] border border-[#F7DEC8] font-medium shadow-2xs group-hover:-translate-y-0.5 transition-transform duration-200">
                                 {{ $project->role }}
                             </span>
                             @if($project->group_name)
-                                <span class="text-xs font-mono px-2 py-0.5 rounded-md bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-semibold">
+                                <span class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-semibold">
                                     {{ $project->group_name }}
                                 </span>
                             @endif
                         </div>
 
                         <div class="z-10">
-                            <h3 class="font-heading font-bold text-xl text-[#2E0A14] group-hover:text-[#E23C64] transition-colors">
+                            <h3 class="project-title-reveal font-heading font-bold text-xl text-[#2E0A14] group-hover:text-[#E23C64] transition-colors">
                                 {{ $project->title }}
                             </h3>
                             <p class="text-xs font-medium text-[#E23C64]">
@@ -435,6 +513,9 @@
                         </div>
                     </div>
 
+                    <!-- Thin Expanding Accent Progress Line -->
+                    <div class="project-accent-line"></div>
+
                     <!-- Project Content -->
                     <div class="p-6 flex-grow flex flex-col justify-between space-y-6">
                         <div class="space-y-4">
@@ -442,13 +523,13 @@
                                 {{ $project->description }}
                             </p>
 
-                            <!-- Features List -->
+                            <!-- Features List with Checkmark Cascade -->
                             @if($project->features && count($project->features))
                                 <div class="space-y-1.5">
                                     <span class="text-[11px] font-mono uppercase tracking-wider text-[#B0183D] font-semibold block">Key Features</span>
-                                    <ul class="space-y-1 text-xs text-[#2E0A14]">
+                                    <ul class="space-y-1.5 text-xs text-[#2E0A14]">
                                         @foreach(array_slice($project->features, 0, 4) as $feature)
-                                            <li class="flex items-center gap-2">
+                                            <li class="project-feature-item flex items-center gap-2">
                                                 <svg class="w-3.5 h-3.5 text-[#FF5E5E] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                                                 </svg>
@@ -460,11 +541,11 @@
                             @endif
                         </div>
 
-                        <!-- Tech tags & Action -->
+                        <!-- Tech tags & Action Button -->
                         <div class="space-y-4 pt-4 border-t border-[#F7DEC8]/60">
                             <div class="flex flex-wrap gap-1.5">
                                 @foreach($project->technologies as $tech)
-                                    <span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-[#FCEDD8]/70 text-[#7A3546] border border-[#F7DEC8]">
+                                    <span class="project-tech-tag text-[11px] font-mono px-2 py-0.5 rounded-md bg-[#FCEDD8]/70 text-[#7A3546] border border-[#F7DEC8] cursor-default">
                                         {{ $tech }}
                                     </span>
                                 @endforeach
@@ -472,9 +553,9 @@
 
                             <button type="button" 
                                     onclick="openProjectModal({{ json_encode($project) }})" 
-                                    class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-[#7A3546] bg-[#FFFBF5] hover:bg-gradient-to-r hover:from-[#FF5E5E] hover:to-[#B0183D] hover:text-white border border-[#F7DEC8] hover:border-transparent transition-all duration-200 active:scale-98">
+                                    class="project-action-btn w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-[#7A3546] bg-[#FFFBF5] hover:bg-gradient-to-r hover:from-[#FF5E5E] hover:to-[#B0183D] hover:text-white border border-[#F7DEC8] hover:border-transparent transition-all duration-200 active:scale-98 shadow-2xs">
                                 <span>View Project Details</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="project-arrow-icon w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
                             </button>

@@ -232,8 +232,256 @@ code, pre, .font-mono {
   will-change: transform;
 }
 
+/* Card hover animation within marquee */
+.marquee-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
 .marquee-card:hover {
   transform: translateY(-3px);
+}
+
+/* ==================== TECH STACK PREMIUM INTERACTIONS ==================== */
+.tech-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  filter: blur(4px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  will-change: opacity, transform, filter;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.tech-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Sequential Stagger for Cards: Programming (0ms), Web Dev (80ms), Database (160ms), Tools (240ms), Networking (320ms) */
+.tech-stagger-1 { transition-delay: 0.00s; }
+.tech-stagger-2 { transition-delay: 0.08s; }
+.tech-stagger-3 { transition-delay: 0.16s; }
+.tech-stagger-4 { transition-delay: 0.24s; }
+.tech-stagger-5 { transition-delay: 0.32s; }
+
+/* Card Header Micro-interactions */
+.tech-card-title {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tech-card:hover .tech-card-title {
+  transform: translateY(-1px);
+}
+
+.tech-card-badge {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+.tech-card:hover .tech-card-badge {
+  transform: scale(1.03);
+}
+
+/* Tool Pills Stagger & Signal Interaction */
+.tech-pill {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease,
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+  will-change: transform, opacity;
+}
+
+.tech-pill.pill-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech-pill:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.tech-pill:active {
+  transform: scale(0.98);
+}
+
+.tech-pill-dot {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease, opacity 0.2s ease;
+}
+
+.tech-pill:hover .tech-pill-dot {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 3px currentColor);
+}
+
+/* Hover Spotlight Layer */
+.tech-spotlight-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(380px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), var(--spotlight-color, rgba(255, 94, 94, 0.08)), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tech-card:hover .tech-spotlight-layer {
+  opacity: 1;
+}
+
+/* Background subtle floating pastel shapes */
+@keyframes techFloatShape {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(14px, -16px);
+  }
+}
+
+.animate-tech-float-1 {
+  animation: techFloatShape 14s ease-in-out infinite;
+}
+
+.animate-tech-float-2 {
+  animation: techFloatShape 18s ease-in-out 3s infinite reverse;
+}
+
+/* ==================== FEATURED PROJECTS SHOWCASE ==================== */
+.project-card {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(20px);
+  transition: clip-path 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+  will-change: clip-path, opacity, transform;
+  position: relative;
+}
+
+.project-card.wipe-revealed {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transform: translateY(0);
+}
+
+/* Sequential Stagger for Wipe */
+.project-wipe-1 { transition-delay: 0.0s; }
+.project-wipe-2 { transition-delay: 0.12s; }
+.project-wipe-3 { transition-delay: 0.24s; }
+
+/* Active Card Emphasis vs Nearby Inactive Cards */
+.project-card.is-project-active {
+  opacity: 1 !important;
+  transform: scale(1.0) !important;
+  box-shadow: 0 16px 36px -4px rgba(226, 60, 100, 0.15), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(255, 94, 94, 0.7);
+}
+
+.project-card.is-project-dimmed {
+  opacity: 0.82;
+  transform: scale(0.985);
+}
+
+/* Animated Project Index Roll (01 -> 02 -> 03) */
+.project-index-number {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.project-index-number.number-changing {
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+/* Thin Expanding Accent Progress Line */
+.project-accent-line {
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(to right, #FF5E5E, #E23C64, #B0183D);
+  transition: width 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 9999px;
+}
+
+/* Slow Header Gradient Movement (8–12s) */
+@keyframes projectHeaderGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.project-header-bg {
+  background-size: 200% 200%;
+  animation: projectHeaderGradient 10s ease-in-out infinite;
+}
+
+/* Project Title Horizontal Reveal */
+.project-title-reveal {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+.project-card:hover .project-title-reveal {
+  transform: translateY(-2px);
+}
+
+/* Key Features Checkmark Cascade */
+.project-feature-item {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-feature-item.feature-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Technology Tags Micro-Hover */
+.project-tech-tag {
+  transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+.project-tech-tag:hover {
+  transform: translateY(-1.5px);
+}
+
+/* View Project Details Button Arrow Shift */
+.project-action-btn:hover .project-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Scanning Highlight along Top Edge on Hover */
+@keyframes projectEdgeScan {
+  0% {
+    left: -35%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+.project-card:hover .project-edge-scan {
+  animation: projectEdgeScan 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ==================== REDUCED MOTION PREFERENCE ==================== */
@@ -276,4 +524,41 @@ code, pre, .font-mono {
   .marquee-duplicate {
     display: none !important;
   }
+  .tech-card {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .tech-pill {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .tech-spotlight-layer {
+    display: none !important;
+  }
+  .animate-tech-float-1,
+  .animate-tech-float-2 {
+    animation: none !important;
+  }
+  .project-card {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .project-header-bg {
+    animation: none !important;
+  }
+  .project-feature-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .project-edge-scan {
+    display: none !important;
+  }
 }
+
+
