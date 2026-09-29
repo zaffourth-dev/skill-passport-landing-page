@@ -178,6 +178,64 @@ code, pre, .font-mono {
   cursor: grabbing !important;
 }
 
+/* ==================== ABOUT CONTINUOUS HORIZONTAL MARQUEE ==================== */
+@keyframes marqueeScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.marquee-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+@media (max-width: 640px) {
+  .marquee-viewport {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScrollRight 30s linear infinite;
+}
+
+/* Pause on hover on desktop */
+.marquee-viewport:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* When user is actively dragging */
+.marquee-track.is-dragging {
+  animation: none !important;
+  cursor: grabbing !important;
+}
+
+/* Card hover animation within marquee */
+.marquee-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.marquee-card:hover {
+  transform: translateY(-3px);
+}
+
 /* ==================== REDUCED MOTION PREFERENCE ==================== */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -202,5 +260,20 @@ code, pre, .font-mono {
     animation: none !important;
     transform: none !important;
     filter: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .marquee-viewport {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    overflow: visible !important;
+  }
+  .marquee-duplicate {
+    display: none !important;
   }
 }

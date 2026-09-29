@@ -1,16 +1,20 @@
 import { initLanyard } from './lanyard.js';
+import { initMarquee } from './marquee.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Interactive Lanyard Hero Visual
     initLanyard('lanyardContainer');
 
-    // 2. Scroll Reveal System using IntersectionObserver
+    // 2. Initialize About Infinite Card Marquee
+    initMarquee('aboutMarqueeContainer', 'aboutMarqueeTrack');
+
+    // 3. Scroll Reveal System using IntersectionObserver
     initScrollReveal();
 
-    // 3. Dynamic Navbar Scroll Transition
+    // 4. Dynamic Navbar Scroll Transition
     initNavbarScroll();
 
-    // 4. Smooth Anchor Scrolling
+    // 5. Smooth Anchor Scrolling
     initSmoothScroll();
 });
 

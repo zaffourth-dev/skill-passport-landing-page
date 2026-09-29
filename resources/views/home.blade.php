@@ -239,58 +239,116 @@
                 </p>
             </div>
 
-            <!-- 4 Focus Cards in Coral Wave Tones -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <!-- Focus 1: Web Development -->
-                <div class="reveal-item stagger-1 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#FF5E5E]/60 hover:bg-[#FCEDD8]/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
-                    <div class="w-10 h-10 rounded-xl bg-[#FF5E5E]/15 text-[#FF5E5E] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
+            <!-- Continuous Infinite Horizontal Card Marquee (Left -> Right) -->
+            <div id="aboutMarqueeContainer" 
+                 class="marquee-viewport relative w-full overflow-hidden py-3 select-none cursor-grab active:cursor-grabbing"
+                 aria-label="Focus Areas Infinite Marquee">
+                <div id="aboutMarqueeTrack" class="marquee-track flex items-stretch gap-5 w-max">
+                    <!-- Sequence 1 (Original 4 Focus Cards) -->
+                    <!-- Focus 1: Web Development -->
+                    <div class="marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#FF5E5E]/60 hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group">
+                        <div class="w-10 h-10 rounded-xl bg-[#FF5E5E]/15 text-[#FF5E5E] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Web Development</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Modern full-stack web applications with Laravel, Vue, clean APIs, and database engineering.
+                        </p>
                     </div>
-                    <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Web Development</h3>
-                    <p class="text-xs text-[#7A3546] leading-normal">
-                        Modern full-stack web applications with Laravel, Vue, clean APIs, and database engineering.
-                    </p>
-                </div>
 
-                <!-- Focus 2: AI & Programming -->
-                <div class="reveal-item stagger-2 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#E23C64]/60 hover:bg-[#FCEDD8]/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
-                    <div class="w-10 h-10 rounded-xl bg-[#E23C64]/15 text-[#E23C64] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
+                    <!-- Focus 2: AI & Programming -->
+                    <div class="marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#E23C64]/60 hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23C64]/15 text-[#E23C64] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">AI & Programming</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Exploring machine intelligence, algorithmic logic, Python, C#, and software architecture principles.
+                        </p>
                     </div>
-                    <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">AI & Programming</h3>
-                    <p class="text-xs text-[#7A3546] leading-normal">
-                        Exploring machine intelligence, algorithmic logic, Python, C#, and software architecture principles.
-                    </p>
-                </div>
 
-                <!-- Focus 3: IoT -->
-                <div class="reveal-item stagger-3 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#FFD464] hover:bg-[#FCEDD8]/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
-                    <div class="w-10 h-10 rounded-xl bg-[#FFD464]/30 text-[#B0183D] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+                    <!-- Focus 3: IoT -->
+                    <div class="marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#FFD464] hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group">
+                        <div class="w-10 h-10 rounded-xl bg-[#FFD464]/30 text-[#B0183D] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Internet of Things</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Hardware-software bridging, sensor automation, embedded systems, and telemetry data.
+                        </p>
                     </div>
-                    <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Internet of Things</h3>
-                    <p class="text-xs text-[#7A3546] leading-normal">
-                        Hardware-software bridging, sensor automation, embedded systems, and telemetry data.
-                    </p>
-                </div>
 
-                <!-- Focus 4: Networking -->
-                <div class="reveal-item stagger-4 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#B0183D]/60 hover:bg-[#FCEDD8]/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-xs group">
-                    <div class="w-10 h-10 rounded-xl bg-[#B0183D]/15 text-[#B0183D] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                        </svg>
+                    <!-- Focus 4: Networking -->
+                    <div class="marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#B0183D]/60 hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group">
+                        <div class="w-10 h-10 rounded-xl bg-[#B0183D]/15 text-[#B0183D] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Networking</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Linux server systems, MikroTik configuration, VirtualBox sandboxing, and TCP/IP routing.
+                        </p>
                     </div>
-                    <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Networking</h3>
-                    <p class="text-xs text-[#7A3546] leading-normal">
-                        Linux server systems, MikroTik configuration, VirtualBox sandboxing, and TCP/IP routing.
-                    </p>
+
+                    <!-- Sequence 2 (Duplicated for Seamless Infinite Loop) -->
+                    <!-- Focus 1 Duplicate -->
+                    <div class="marquee-duplicate marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#FF5E5E]/60 hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group" aria-hidden="true">
+                        <div class="w-10 h-10 rounded-xl bg-[#FF5E5E]/15 text-[#FF5E5E] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Web Development</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Modern full-stack web applications with Laravel, Vue, clean APIs, and database engineering.
+                        </p>
+                    </div>
+
+                    <!-- Focus 2 Duplicate -->
+                    <div class="marquee-duplicate marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#E23C64]/60 hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group" aria-hidden="true">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23C64]/15 text-[#E23C64] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">AI & Programming</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Exploring machine intelligence, algorithmic logic, Python, C#, and software architecture principles.
+                        </p>
+                    </div>
+
+                    <!-- Focus 3 Duplicate -->
+                    <div class="marquee-duplicate marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#FFD464] hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group" aria-hidden="true">
+                        <div class="w-10 h-10 rounded-xl bg-[#FFD464]/30 text-[#B0183D] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Internet of Things</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Hardware-software bridging, sensor automation, embedded systems, and telemetry data.
+                        </p>
+                    </div>
+
+                    <!-- Focus 4 Duplicate -->
+                    <div class="marquee-duplicate marquee-card w-[240px] sm:w-[260px] lg:w-[280px] shrink-0 p-5 rounded-2xl bg-[#FFFBF5] border border-[#F7DEC8] hover:border-[#B0183D]/60 hover:bg-[#FCEDD8]/40 shadow-xs hover:shadow-md transition-all duration-200 group" aria-hidden="true">
+                        <div class="w-10 h-10 rounded-xl bg-[#B0183D]/15 text-[#B0183D] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading font-semibold text-[#2E0A14] text-base mb-1">Networking</h3>
+                        <p class="text-xs text-[#7A3546] leading-normal">
+                            Linux server systems, MikroTik configuration, VirtualBox sandboxing, and TCP/IP routing.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
