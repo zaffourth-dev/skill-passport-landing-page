@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>Kamarul Arifin Muzaffar — Student Developer</title>
-    <meta name="description" content="Portfolio of Kamarul Arifin Muzaffar, a student developer interested in web development, AI, IoT and networking.">
+    <title>Kamarul Arifin Muzaffar — Pengembang Siswa</title>
+    <meta name="description" content="Portofolio Kamarul Arifin Muzaffar, seorang pengembang siswa yang tertarik pada pengembangan web, AI, IoT, dan jaringan.">
     <meta name="author" content="Kamarul Arifin Muzaffar">
-    <meta name="keywords" content="Kamarul Arifin Muzaffar, Arif, Student Developer, Web Developer, AI, IoT, Networking, SMK Tunas Harapan Pati, TJKT, Laravel, Vue">
+    <meta name="keywords" content="Kamarul Arifin Muzaffar, Arif, Pengembang Siswa, Web Developer, AI, IoT, Jaringan, SMK Tunas Harapan Pati, TJKT, Laravel, Vue">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:title" content="Kamarul Arifin Muzaffar — Student Developer">
-    <meta property="og:description" content="Portfolio of Kamarul Arifin Muzaffar, a student developer interested in web development, AI, IoT and networking.">
+    <meta property="og:title" content="Kamarul Arifin Muzaffar — Pengembang Siswa">
+    <meta property="og:description" content="Portofolio Kamarul Arifin Muzaffar, seorang pengembang siswa yang tertarik pada pengembangan web, AI, IoT, dan jaringan.">
     <meta property="og:image" content="{{ asset('favicon.svg') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Kamarul Arifin Muzaffar — Student Developer">
-    <meta property="twitter:description" content="Portfolio of Kamarul Arifin Muzaffar, a student developer interested in web development, AI, IoT and networking.">
+    <meta property="twitter:title" content="Kamarul Arifin Muzaffar — Pengembang Siswa">
+    <meta property="twitter:description" content="Portofolio Kamarul Arifin Muzaffar, seorang pengembang siswa yang tertarik pada pengembangan web, AI, IoT, dan jaringan.">
 
     <!-- Favicon with Coral Wave styling -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23B0183D'/><text x='50' y='65' font-family='sans-serif' font-size='48' font-weight='700' fill='%23FFD464' text-anchor='middle'>A</text></svg>">
@@ -43,30 +43,31 @@
                     ARIF<span class="text-[#FF5E5E]">.</span>DEV
                 </span>
                 <span class="hidden sm:inline-block text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-semibold">
-                    Portfolio
+                    Portofolio
                 </span>
             </a>
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-[#7A3546]" aria-label="Main Navigation">
-                <a href="#about" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">About</a>
-                <a href="#skills" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Skills</a>
-                <a href="#projects" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Projects</a>
-                <a href="#experience" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Experience</a>
-                <a href="#organizations" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Organizations</a>
-                <a href="#education" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Education</a>
-                <a href="#contact" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Contact</a>
+                <a href="#about" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Tentang</a>
+                <a href="#skills" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Keahlian</a>
+                <a href="#projects" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Proyek</a>
+                <a href="#experience" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Pengalaman</a>
+                <a href="#organizations" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Organisasi</a>
+                <a href="#education" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Pendidikan</a>
+                <a href="#contact" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded px-1 py-0.5">Kontak</a>
             </nav>
 
             <!-- Actions (Download CV & Mobile Toggle) -->
             <div class="flex items-center gap-3">
-                <a href="#contact" 
-                   onclick="handleDownloadCv(event)"
+                <a href="{{ asset('cv-kamarul-arifin-muzaffar.pdf') }}" 
+                   download="CV_Kamarul_Arifin_Muzaffar.pdf"
+                   target="_blank"
                    class="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium text-[#7A3546] bg-white hover:bg-[#FCEDD8]/70 border border-[#F7DEC8] hover:border-[#FF5E5E]/50 rounded-xl shadow-xs transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E]">
                     <svg class="w-4 h-4 text-[#FF5E5E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
-                    <span>Download CV</span>
+                    <span>Unduh CV</span>
                 </a>
 
                 <!-- Mobile Hamburger Button -->
@@ -87,14 +88,14 @@
 
         <!-- Mobile Navigation Drawer -->
         <div id="mobileMenu" class="hidden md:hidden border-b border-[#F7DEC8] bg-[#FFFBF5]/98 backdrop-blur-md px-4 pt-3 pb-6 space-y-1 shadow-lg">
-            <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">About</a>
-            <a href="#skills" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Skills / Tech Stack</a>
-            <a href="#projects" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Featured Projects</a>
-            <a href="#experience" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Experience</a>
-            <a href="#organizations" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Organizations</a>
-            <a href="#education" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Education</a>
-            <a href="#certifications" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Certifications</a>
-            <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Contact</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Tentang</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Keahlian / Stack Teknologi</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Proyek Unggulan</a>
+            <a href="#experience" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Pengalaman</a>
+            <a href="#organizations" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Organisasi</a>
+            <a href="#education" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Pendidikan</a>
+            <a href="#certifications" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Sertifikasi</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A3546] hover:text-[#B0183D] hover:bg-[#FCEDD8]/70 transition">Kontak</a>
         </div>
     </header>
 
@@ -111,27 +112,27 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            <div id="modalBadge" class="inline-block text-xs font-mono px-2.5 py-1 rounded-full bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-semibold mb-3">Role</div>
-            <h3 id="modalTitle" class="text-2xl font-heading font-bold text-[#2E0A14]">Project Title</h3>
-            <p id="modalSubtitle" class="text-sm font-medium text-[#E23C64] mb-4">Subtitle</p>
-            <p id="modalDesc" class="text-[#7A3546] text-sm leading-relaxed mb-6">Description</p>
+            <div id="modalBadge" class="inline-block text-xs font-mono px-2.5 py-1 rounded-full bg-[#FCEDD8] text-[#B0183D] border border-[#F7DEC8] font-semibold mb-3">Peran</div>
+            <h3 id="modalTitle" class="text-2xl font-heading font-bold text-[#2E0A14]">Judul Proyek</h3>
+            <p id="modalSubtitle" class="text-sm font-medium text-[#E23C64] mb-4">Subjudul</p>
+            <p id="modalDesc" class="text-[#7A3546] text-sm leading-relaxed mb-6">Deskripsi</p>
             
             <div class="mb-6">
-                <h4 class="text-xs font-semibold uppercase tracking-wider text-[#B0183D] mb-3">Key Highlights & Features</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-[#B0183D] mb-3">Sorotan & Fitur Utama</h4>
                 <ul id="modalFeatures" class="space-y-2 text-sm text-[#2E0A14]"></ul>
             </div>
 
             <div class="mb-6">
-                <h4 class="text-xs font-semibold uppercase tracking-wider text-[#B0183D] mb-2">Technologies Used</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-[#B0183D] mb-2">Teknologi yang Digunakan</h4>
                 <div id="modalTech" class="flex flex-wrap gap-2"></div>
             </div>
 
             <div class="flex items-center justify-end gap-3 pt-4 border-t border-[#F7DEC8]">
                 <button type="button" onclick="closeProjectModal()" class="px-4 py-2 text-sm font-medium text-[#7A3546] hover:bg-[#FCEDD8]/60 rounded-xl transition">
-                    Close
+                    Tutup
                 </button>
                 <a id="modalActionBtn" href="#contact" class="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#FF5E5E] via-[#E23C64] to-[#B0183D] hover:opacity-95 shadow-md shadow-[#E23C64]/20 rounded-xl transition">
-                    Inquire About Project
+                    Ajukan Proyek
                 </a>
             </div>
         </div>
@@ -145,19 +146,19 @@
                     ARIF<span class="text-[#FF5E5E]">.</span>DEV
                 </span>
                 <p class="text-xs text-[#7A3546] mt-1">
-                    Building, learning, and experimenting with technology.
+                    Membangun, belajar, dan bereksperimen dengan teknologi.
                 </p>
             </div>
 
             <!-- Footer Quick Links -->
             <div class="flex items-center gap-6 text-sm font-medium text-[#7A3546]">
-                <a href="https://github.com/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
+                <a href="https://github.com/zaffourth-dev" target="_blank" rel="noopener noreferrer" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
                     GitHub
                 </a>
-                <a href="https://linkedin.com/in/kamarularifin" target="_blank" rel="noopener noreferrer" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
-                    LinkedIn
+                <a href="https://wa.me/6288212282007" target="_blank" rel="noopener noreferrer" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
+                    WhatsApp
                 </a>
-                <a href="mailto:arif@example.com" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
+                <a href="mailto:arifarifin7373@gmail.com" class="hover:text-[#B0183D] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5E5E] rounded">
                     Email
                 </a>
             </div>
@@ -199,7 +200,7 @@
 
         // CV Download Handler (Direct download or notification)
         function handleDownloadCv(event) {
-            alert("Curriculum Vitae (CV) Kamarul Arifin Muzaffar sedang disiapkan atau dapat diminta langsung via email contact di bawah!");
+            alert("Curriculum Vitae (CV) Kamarul Arifin Muzaffar sedang disiapkan atau dapat diminta langsung melalui email kontak di bawah!");
         }
 
         // Project Modal Handling
@@ -208,7 +209,7 @@
             document.getElementById('modalTitle').textContent = data.title;
             document.getElementById('modalSubtitle').textContent = data.subtitle;
             document.getElementById('modalDesc').textContent = data.description;
-            document.getElementById('modalBadge').textContent = 'Role: ' + data.role;
+            document.getElementById('modalBadge').textContent = 'Peran: ' + data.role;
 
             const featuresList = document.getElementById('modalFeatures');
             featuresList.innerHTML = '';

@@ -22,7 +22,7 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('KAMARUL ARIFIN');
         $response->assertSee('ATLAS MBG');
-        $response->assertSee('WasteBank2026');
+        $response->assertSee('LERES-AI');
         $response->assertSee('Journey to Logic');
         $response->assertSee('SMK Tunas Harapan Pati');
         $response->assertSee('Dicoding');

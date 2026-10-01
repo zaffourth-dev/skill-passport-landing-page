@@ -23,7 +23,7 @@ export function initProjectShowcase(sectionId = 'projects') {
 
   const projectMeta = [
     { num: '01', title: 'ATLAS MBG' },
-    { num: '02', title: 'WasteBank2026' },
+    { num: '02', title: 'LERES-AI' },
     { num: '03', title: 'Journey to Logic' },
   ];
 
@@ -54,9 +54,11 @@ export function initProjectShowcase(sectionId = 'projects') {
     projectCards.forEach((card, idx) => {
       const accentLine = card.querySelector('.project-accent-line');
       const featureItems = card.querySelectorAll('.project-feature-item');
+      const techTags = card.querySelectorAll('.project-tech-tag');
 
       if (idx === index) {
         card.classList.add('is-project-active');
+        card.classList.add('wipe-revealed');
         card.classList.remove('is-project-dimmed');
 
         if (accentLine) {
@@ -68,10 +70,18 @@ export function initProjectShowcase(sectionId = 'projects') {
           featureItems.forEach((item, fIdx) => {
             setTimeout(() => {
               item.classList.add('feature-visible');
-            }, 80 + fIdx * 50);
+            }, 60 + fIdx * 50);
+          });
+
+          // Cascade technology tags right after feature list
+          techTags.forEach((tag, tIdx) => {
+            setTimeout(() => {
+              tag.classList.add('tag-visible');
+            }, 260 + tIdx * 40);
           });
         } else {
           featureItems.forEach(item => item.classList.add('feature-visible'));
+          techTags.forEach(tag => tag.classList.add('tag-visible'));
         }
       } else {
         card.classList.remove('is-project-active');
@@ -107,6 +117,17 @@ export function initProjectShowcase(sectionId = 'projects') {
 
   projectCards.forEach(card => observer.observe(card));
 
+  // Section header entrance trigger (Selected Works + 3 MVP Showcases)
+  const headerObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        section.classList.add('projects-header-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  headerObserver.observe(section);
+
   // Trigger wipe reveal for cards as they enter viewport
   if (!isReducedMotion) {
     const wipeObserver = new IntersectionObserver((entries, obs) => {
@@ -123,5 +144,6 @@ export function initProjectShowcase(sectionId = 'projects') {
     projectCards.forEach(card => wipeObserver.observe(card));
   } else {
     projectCards.forEach(card => card.classList.add('wipe-revealed'));
+    section.classList.add('projects-header-revealed');
   }
 }
